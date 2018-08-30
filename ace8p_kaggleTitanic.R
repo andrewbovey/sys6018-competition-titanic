@@ -20,6 +20,7 @@ tree <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked, d
 prediction <- predict(tree, newdata = test, type = "class")
 
 solution <- data.frame(PassengerId = test$PassengerId , Survived = prediction)
+
 write.csv(solution, file = "my_solution.csv", row.names = FALSE)
 
 
