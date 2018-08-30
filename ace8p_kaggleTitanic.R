@@ -3,6 +3,8 @@
 # Kaggle Titanic Submission
 #========================================================#
 
+# Referenced https://www.datacamp.com/community/open-courses/kaggle-r-tutorial-on-machine-learning for this submission #
+
 library(rpart)
 
 setwd("~/Documents/GitHub/sys6018-competition-titanic")
@@ -11,11 +13,7 @@ list.files()
 
 test <- read.csv("test.csv")
 train <- read.csv("train.csv")
-gender_submission <- read.csv("gender_submission.csv")
 
-train$YoungOld <- NA
-train$YoungOld[train$Age < 18] <- 1
-train$YoungOld[train$Age >= 18] <- 0
 
 tree <- rpart(Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked, data = train, method = "class")
 
